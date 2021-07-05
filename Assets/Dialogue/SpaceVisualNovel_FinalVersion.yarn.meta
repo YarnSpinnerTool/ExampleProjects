@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9a6003d035fcc4e8fa7ec84228f7d290
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  LastImportHadImplicitStringIDs: 1
+  LastImportHadAnyStrings: 1
+  isSuccessfullyParsed: 1
+  parseErrorMessage: "Error in Assets/Dialogue/SpaceVisualNovel_FinalVersion.yarn
+    line 53\n        <<set $away_mission_readiness += 1>>\nUndeclared variable $away_mission_readiness"
