@@ -1,28 +1,63 @@
 ﻿title: Start
-tags:
 ---
-
 <<camera Title>>
 <<fadeIn>>
 <<wait 2>>
 <<fadeOut>>
 <<camera Corridor>>
 <<fadeIn>>
-Player: Another day in Space Fleet. Might go have a chat...
-// pick a person to speak to
+
+Player: Another day in Space Fleet.
+Player: Today's my rotation to Engineering. I hate Engineering.
+Player: All I dream of is going on an away mission.
+Player: I wonder what I should do? 
+
+-> Go and talk to the Captain
+    <<jump TalkToCaptain>>
 -> Go see the Engineer as per orders
     <<jump TalkToEngineer>>
 -> Meet up with your friend
     <<jump TalkToCrewmate>>
--> Go and talk to the Captain
-    <<jump TalkToCaptain>>
 ===
 title: TalkToEngineer
 ---
 <<fadeOut>>
 <<place Engineer CorridorLeft>>
+<<pose Engineer hand-on-hip>>
+<<expression Engineer angry>>
 <<fadeIn>>
-Captain: Hello! I am the Engineer.
+
+Engineer: Look who turned up.
+Engineer: Honestly, you never feel like you want to be here. 
+Engineer: What's your problem?
+    -> I slept in.
+        Engineer: Some of us have a job to do.
+    -> I hate engines.
+        Engineer: I trained as a cook. I'm meant to be slinging Space Paste™, not repairing.. whatever this is.
+        Player: ... an engine. It's an engine.
+        Engineer: Right, yes, I'm meant to be cooking, not repairing engines. Sorry forgot for a sec.
+    -> I have an overwhelming attraction to engines.
+        Engineer: It'll never love you back. Trust me, we've all been there.
+Engineer: Anyway, the engine is busted. The... juice.... is full, but it won't go anywhere.
+<<pose Engineer arms-out>>
+Engineer: The whole ship is falling apart.
+<<pose Engineer hand-on-hip>>
+Engineer: We should never have sold the Space Fleet to Space Paste™ Incorporated. 
+Engineer: Can you pass me a...
+<<pose Engineer neutral>>
+<<expression Engineer surprised>>
+<<if $captain_is_friend>>
+    Intercom: Alert. Alert. Could the Captain's dear friend please come to the bridge?
+    Intercom: And also the rest of the senior staff.
+<<else>>
+    Intercom: Alert. Alert. Senior staff to the bridge.
+<<endif>>
+Engineer: What now? Probably need someone to fill in for the cook again. 
+<<expression Engineer angry>>
+Engineer: Seeing as how I'm the cook. And I'm also the Senior Engineer. Hah.
+Player: See ya later..
+Engineer: I'm coming too! If there's excitement I want to be there, so I know what I'm running away from. 
+
 <<jump BridgeEnding>>
 ===
 title: TalkToCrewmate
@@ -30,7 +65,29 @@ title: TalkToCrewmate
 <<fadeOut>>
 <<place Crewmate CorridorCenter>>
 <<fadeIn>>
-Captain: Hello! I am your Crewmate.
+
+Player: Hey! Do you have any more Space Paste™ left over in your rations?
+Crewmate: You're meant to be in Engineering. You can't have any more Space Paste™. 
+Crewmate: What happened to your ration?
+<<pose Crewmate hand-on-hip>>
+<<expression Crewmate smirk>>
+Crewmate: You're just slacking off again aren't you? 
+Player: No, I thirst for Space Paste™.
+Crewmate: You... thirst for food?
+Player: Well, uh, I hunger for it.
+Crewmate: Pity we don't have a cook anymore. Anyway...
+<<pose Crewmate neutral>>
+<<expression Crewmate surprised>>
+<<if $captain_is_friend>>
+    Intercom: Alert. Alert. Could the Captain's dear friend please come to the bridge?
+    Intercom: And also the rest of the senior staff.
+<<else>>
+    Intercom: Alert. Alert. Senior staff to the bridge.
+<<endif>>
+Player: Oh no! Gotta go! Can I PLEASE have your Space Paste™ ration?
+Crewemate: Oh, fine. It's just beef-flavoured toothpaste, you know...
+Player: Oh, I know.
+
 <<jump BridgeEnding>>
 ===
 title: TalkToCaptain
@@ -38,23 +95,88 @@ title: TalkToCaptain
 <<fadeOut>>
 <<place Captain CorridorRight>>
 <<fadeIn>>
-Captain: Hello! I am the Captain.
-Player: I want to talk to go on more missions.
-Captain: Do you think you are ready?
--> Yes
-    <<set $away_mission_readiness += 1>>
-    // if so, ask again
-    Captain: Really?
-    -> ...yes?
+
+Captain: What's up? You're meant to be in Engineering today!
+Player: Uh, yeah, but I want to go to on an away mission.
+Captain: Hmm! Why do you want to go on an away mission?
+    -> I hunger for danger.
+        Captain: That's reasonable. It's why we're all here after all. On this space ship. 
+    -> I only feel alive when I'm threatened.
+        Captain: How unhealthy. Have you considered talking to a counselor?
+            -> That sounds really useful actually...
+                Captain: Just kidding. We don't have a counselor. 
+                    -> We probably should.
+                        Captain: The forms to request a new one are just too long to bother with.
+                    -> Why not?
+                        Captain: Well.. there was an incident. Don't worry about it.
+            -> I did. They told me that trait was a useful asset to the fleet.
+                Captain: I mean, fair enough.
+    -> Working in Engineering is booooring.
+        Captain: Would it be more interesting if I left you in the airlock all day?
+            -> Fair enough.
+                Captain: It is fair enough. I'm the captain!
+            -> Maybe I'd like the airlock...
+                Captain: You've got problems.
+                Player: Tell me about it.
+Captain: Anyway, you want to go on an away mission? Really?
+    -> Yes.
+        Captain: You're pretty desperate, aren't you...
+    -> PLEASE! I NEED THIS!
+        Captain: Oh, sure, sure. OK, I'll consider it.
         <<set $away_mission_readiness += 1>>
-    -> Actually, no.
--> No
-// now go to the ending
+Captain: But really, Space Law is pretty clear on the matter. You're too junior for away missions.
+    -> I'll give you some of my Space Paste™, the tasty treat we all love. For every meal.
+        <<set $away_mission_readiness += 1>>
+        Captain: That's pretty compelling. I love Space Paste™.
+        Captain: I'll think about it.
+    -> I'll stop stealing chicken soup from the vending machines.
+        Captain: That was you? I knew it!
+        Player: It tastes like orange juice anyway.
+        Captain: Tempting offer, but not really helpful.
+    -> What would it take?
+        Captain: I want for nothing.
+        Player: Ah.
+Captain: Look, it's a busy day. Engineering has lots that needs doing.
+Captain: Our Chief Engineer is a Cook, and really shouldn't be there. 
+Captain: ... which means there's even more to do than should be.
+Captain: I can't spare you for away missions today.
+    -> I'll cause more trouble than it's worth in Engineering...
+        Captain: You will?
+        Player: That's not a threat. I'm just... well.. total rubbish.
+        Captain: Hmm. Look, I will really think about it.
+        <<set $away_mission_readiness += 1>>
+        Player: It really wasn't a threat. 
+        Player: But.. thanks! Means a lot.
+        Captain: Does it?  
+            -> Uh, yes?
+                Captain: Are we friends? I've never had a friend.
+                Player: Sure, why not.
+                <<set $captain_is_friend to true>>
+            -> Not really. I just really want to go on an away mission.
+                Player: You don't actually mean much to me.
+                Player: And this is just another day.
+                Captain: Ah. Well then.
+                <<set $captain_is_friend to false>>
+        Player: Anyway...
+    -> There's none coming up?
+        Captain: We're in deep space.
+        Captain: We last saw a planet five days ago.
+        Captain: Where would I even send you?
+        Captain: It's not like a pirate ship is going to pull up alongside us.
+        Captain: ...
+Captain: I feel a great sense of foreboding.
+<<place Engineer CorridorLeft>>
+<<expression Engineer angry>>
+Engineer: Hey! Why aren't you in Engineering?
+Captain: Hmm, what's that noise. Something is going on...
+
 <<jump BridgeEnding>>
 ===
 title: BridgeEnding
 ---
-// everyone reports to the bridge
+
+// We're not currently on the bridge. Fade out, go there, and set up
+// our characters before we fade in.
 <<fadeOut>>
 <<camera Bridge>>
 <<place Engineer BridgeLeft>>
@@ -63,20 +185,52 @@ title: BridgeEnding
 <<expression Engineer angry>>
 <<pose Captain hand-at-mouth>>
 <<expression Captain angry>>
+
 <<fadeIn>>
-Captain: Pirates!
-Player: Oh no!
-// now change who goes depending on player actions
+
+Captain: We're totally doomed. It's the Space Pirates!
+Engineer: We have to do something! Where's the escape pods?
+
 <<if $away_mission_readiness < 2>>
+    // We haven't persuaded the captain to take us
     <<place Crewmate BridgeCenter>>
-    Captain: Crewmate, go deal with those pirates!
     <<expression Crewmate happy>>
+    Crewmate: Take me to fight the pirates! I was made for this!
+    Captain: I was just about to call you!
+    <<expression Crewmate smirk>>
+    Crewmate: I used to be a space pirate! I know their tactics!
+    Crewmate: And I definitely don't want to desert, giving them all your secrets!
     <<pose Captain pointing>>
-    Crewmate: Yes, Captain.
+    Captain: Good enough for me! Off you go!
+    Player: Damn, I missed my chance! Well, better them than me.
 <<else>>
+    // We've persuaded the captain to take us
+    Player: Now's my chance! Take me to fight the pirates!
     <<pose Captain pointing>>
     <<expression Captain smirk>>
-    Captain: Player, you were just telling me how ready for this you are. Go deal with those pirates!
-    Player: Hooray!
+    Captain: Oh, you've convinced me.
+    Captain: I swear... if you die a hero...
+        -> I promise to use my last breath to give all the credit to you.
+            <<expression Captain happy>>
+            Captain: Aw, that's so sweet. Thank you.
+            Engineer: Me too? Can I have some credit?
+            <<expression Captain neutral>>
+                -> No. You're pathetic.
+                    Engineer: Yeah... you're right. Sorry for asking.
+                -> Of course! Credit for everyone!
+                    <<pose Engineer arms-out>>
+                    <<expression Engineer happy>>
+                    Engineer: Finally, I could be a cook again!
+                    <<pose Engineer neutral>>
+                    <<expression Engineer neutral>>
+        -> Better me than you.
+            Captain: Good point. Off you go.
+    <<if $captain_is_friend>>
+        Captain: I'll miss you if you die... friend.
+    <<else>>
+        Captain: I'm sure somebody will miss you if you die.
+    <<endif>>
 <<endif>>
+<<fadeOut>>
+THE END
 ===
