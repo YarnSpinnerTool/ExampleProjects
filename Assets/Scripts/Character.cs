@@ -4,7 +4,7 @@ using UnityEngine;
 using Yarn.Unity;
 
 public class Character : MonoBehaviour {
-    [System.Serializable] // texture lookup for facial expressions
+    [System.Serializable] // map of textures for facial expressions
     public class Expression {
         public string name;
         public Texture2D texture;
@@ -20,18 +20,21 @@ public class Character : MonoBehaviour {
 
     // when this character is first created
     public void Awake() {
-        // set initial facial expression and pose to defaults
-        var defaultExpression = expressions[0].texture;
-        faceRenderer.materials[faceMaterialIndex].mainTexture = defaultExpression;
+        // set initial pose and facial expression to defaults
         animator = GetComponentInChildren<Animator>();
+        if (expressions.Count < 1) {
+            Debug.LogError($"Character {name} has no available facial textures.");
+            return;
+        }
+        SetFaceTexture(expressions[0].texture);
+        Debug.Log($"Character {name} created.");
     }
 
     // tell the animator to jump to state {poseName} 
     [YarnCommand("pose")]
     public void SetPose(string poseName) {
-        string stateName = "Base Layer." + poseName;
-        Debug.Log($"{name} playing {stateName}");
-        animator.Play(stateName, 0);
+        animator.Play("Base Layer." + poseName, 0);
+        Debug.Log($"{name} adopting {poseName} pose.");
     }
 
     // sets character expression texture to {expressionName} texture
@@ -46,6 +49,10 @@ public class Character : MonoBehaviour {
             }
         }
         // get the faceRenderer to apply the expression texture to the Character's face
-        faceRenderer.materials[faceMaterialIndex].mainTexture = expressionToUse.texture;
+        SetFaceTexture(expressionToUse.texture);
+    }
+
+    private void SetFaceTexture(Texture2D texture) {
+        faceRenderer.materials[faceMaterialIndex].mainTexture = texture;
     }
 }
