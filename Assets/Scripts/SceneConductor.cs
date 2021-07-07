@@ -5,7 +5,6 @@ using UnityEngine;
 using Yarn.Unity;
 
 public class SceneConductor : MonoBehaviour {
-    [SerializeField] List<Character> characters = new List<Character>(); // characters available to the scene
     private DialogueRunner dialogueRunner; // utility object that serves lines of dialogue
     private FadeLayer fadeLayer; // black overlay used to fade in/out of scenes
 
@@ -45,7 +44,6 @@ public class SceneConductor : MonoBehaviour {
             Debug.LogError($"There is no Character named {characterName}.");
             return;
         }
-        character.gameObject.SetActive(true);
         Transform destination = GetLocationMarkerWithName(locationName, markerName);
         if (destination != null) {
             MoveTransform(character.transform, destination);
