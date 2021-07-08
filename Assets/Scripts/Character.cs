@@ -30,7 +30,18 @@ public class Character : MonoBehaviour {
         Debug.Log($"Character {name} created.");
     }
 
-    // tell the animator to jump to state {poseName} 
+    // moves character to location {location}>{markerName} in the scene
+    [YarnCommand("place")]
+    public void Move(Location location, string markerName) {
+        Transform destination = location.GetMarkerWithName(markerName);
+        if (destination != null) {
+            transform.position = destination.position;
+            transform.rotation = destination.rotation;
+            Debug.Log($"Character {name} moved to {location.name}>{markerName}.");
+        }
+    }
+
+    // tells the animator to jump to state {poseName} 
     [YarnCommand("pose")]
     public void SetPose(string poseName) {
         animator.Play("Base Layer." + poseName, 0);
@@ -41,15 +52,22 @@ public class Character : MonoBehaviour {
     [YarnCommand("expression")]
     public void SetExpression(string expressionName){
         // find the expression with the same name as we are looking for
-        Expression expressionToUse = null;
-        foreach (var expression in expressions) {
-            if (expression.name.Equals(expressionName, System.StringComparison.InvariantCultureIgnoreCase)) {
-                expressionToUse = expression;
-                break;
+        Expression expressionToUse = FindExpressionWithName(expressionName);
+        if (expressionToUse == null) {
+            Debug.LogError($"Character {name} has no Expression named {expressionName}.");
+            return;
+        }
+        SetFaceTexture(expressionToUse.texture);
+    }
+
+    private Expression FindExpressionWithName(string expressionName) {
+        var caseInsensitiveMode = System.StringComparison.InvariantCultureIgnoreCase;
+        foreach (Expression expression in expressions) {
+            if (expression.name.Equals(expressionName, caseInsensitiveMode)) {
+                return expression;
             }
         }
-        // get the faceRenderer to apply the expression texture to the Character's face
-        SetFaceTexture(expressionToUse.texture);
+        return null;
     }
 
     private void SetFaceTexture(Texture2D texture) {
