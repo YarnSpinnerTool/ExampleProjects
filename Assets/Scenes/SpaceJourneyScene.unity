@@ -1446,13 +1446,26 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 471319242}
+  - component: {fileID: 471319241}
   m_Layer: 0
   m_Name: Corridor
-  m_TagString: Location
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &471319241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471319240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af0061eb26d5462bb50e7fa31aa73e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &471319242
 Transform:
   m_ObjectHideFlags: 0
@@ -1810,13 +1823,26 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 535426599}
+  - component: {fileID: 535426598}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: Location
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &535426598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535426597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af0061eb26d5462bb50e7fa31aa73e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &535426599
 Transform:
   m_ObjectHideFlags: 0
@@ -4929,13 +4955,26 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1403379119}
+  - component: {fileID: 1403379118}
   m_Layer: 0
   m_Name: Title
-  m_TagString: Location
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1403379118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403379117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af0061eb26d5462bb50e7fa31aa73e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1403379119
 Transform:
   m_ObjectHideFlags: 0
@@ -5323,7 +5362,7 @@ GameObject:
   - component: {fileID: 1447276864}
   - component: {fileID: 1447276863}
   m_Layer: 0
-  m_Name: Scene Conductor
+  m_Name: Scene Director
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5338,7 +5377,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1447276862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84be816b967e54cf1ad79f81d415a50a, type: 3}
+  m_Script: {fileID: 11500000, guid: 975d29b9692bf4fd2b3a025416b4ee6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1447276864

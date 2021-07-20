@@ -12,17 +12,17 @@ Player: Today's my rotation to Engineering. I hate Engineering.
 Player: All I dream of is going on an away mission.
 Player: I wonder what I should do? 
 
--> Go and talk to the Captain
-    <<jump TalkToCaptain>>
--> Go see the Engineer as per orders
-    <<jump TalkToEngineer>>
--> Meet up with your friend
-    <<jump TalkToCrewmate>>
+    -> Go and talk to the Captain
+        <<jump TalkToCaptain>>
+    -> Go see the Engineer as per orders
+        <<jump TalkToEngineer>>
+    -> Meet up with your friend
+        <<jump TalkToCrewmate>>
 ===
 title: TalkToEngineer
 ---
 <<fadeOut>>
-<<place Engineer CorridorLeft>>
+<<place Engineer Corridor Left>>
 <<pose Engineer hand-on-hip>>
 <<expression Engineer angry>>
 <<fadeIn>>
@@ -46,24 +46,20 @@ Engineer: We should never have sold the Space Fleet to Space Paste™ Incorporat
 Engineer: Can you pass me a...
 <<pose Engineer neutral>>
 <<expression Engineer surprised>>
-<<if $captain_is_friend>>
-    Intercom: Alert. Alert. Could the Captain's dear friend please come to the bridge?
-    Intercom: And also the rest of the senior staff.
-<<else>>
-    Intercom: Alert. Alert. Senior staff to the bridge.
-<<endif>>
+Intercom: Alert. Alert. Senior staff to the bridge.
 Engineer: What now? Probably need someone to fill in for the cook again. 
 <<expression Engineer angry>>
 Engineer: Seeing as how I'm the cook. And I'm also the Senior Engineer. Hah.
 Player: See ya later..
-Engineer: I'm coming too! If there's excitement I want to be there, so I know what I'm running away from. 
+Engineer: I'm coming too! If there's excitement I want to be there.
+Engineer: So I know what I'm running away from...
 
 <<jump BridgeEnding>>
 ===
 title: TalkToCrewmate
 ---
 <<fadeOut>>
-<<place Crewmate CorridorCenter>>
+<<place Crewmate Corridor Center>>
 <<fadeIn>>
 
 Player: Hey! Do you have any more Space Paste™ left over in your rations?
@@ -78,12 +74,7 @@ Player: Well, uh, I hunger for it.
 Crewmate: Pity we don't have a cook anymore. Anyway...
 <<pose Crewmate neutral>>
 <<expression Crewmate surprised>>
-<<if $captain_is_friend>>
-    Intercom: Alert. Alert. Could the Captain's dear friend please come to the bridge?
-    Intercom: And also the rest of the senior staff.
-<<else>>
-    Intercom: Alert. Alert. Senior staff to the bridge.
-<<endif>>
+Intercom: Alert. Alert. Senior staff to the bridge.
 Player: Oh no! Gotta go! Can I PLEASE have your Space Paste™ ration?
 Crewemate: Oh, fine. It's just beef-flavoured toothpaste, you know...
 Player: Oh, I know.
@@ -93,7 +84,7 @@ Player: Oh, I know.
 title: TalkToCaptain
 ---
 <<fadeOut>>
-<<place Captain CorridorRight>>
+<<place Captain Corridor Right>>
 <<fadeIn>>
 
 Captain: What's up? You're meant to be in Engineering today!
@@ -165,7 +156,7 @@ Captain: I can't spare you for away missions today.
         Captain: It's not like a pirate ship is going to pull up alongside us.
         Captain: ...
 Captain: I feel a great sense of foreboding.
-<<place Engineer CorridorLeft>>
+<<place Engineer Corridor Left>>
 <<expression Engineer angry>>
 Engineer: Hey! Why aren't you in Engineering?
 Captain: Hmm, what's that noise. Something is going on...
@@ -179,12 +170,14 @@ title: BridgeEnding
 // our characters before we fade in.
 <<fadeOut>>
 <<camera Bridge>>
-<<place Engineer BridgeLeft>>
-<<place Captain BridgeRight>>
+<<place Engineer Bridge Left>>
+<<place Crewmate Bridge Center>>
+<<place Captain Bridge Right>>
 <<pose Engineer hands-on-hips>>
 <<expression Engineer angry>>
 <<pose Captain hand-at-mouth>>
 <<expression Captain angry>>
+<<expression Crewmate surprised>>
 
 <<fadeIn>>
 
@@ -193,11 +186,11 @@ Engineer: We have to do something! Where's the escape pods?
 
 <<if $away_mission_readiness < 2>>
     // We haven't persuaded the captain to take us
-    <<place Crewmate BridgeCenter>>
     <<expression Crewmate happy>>
     Crewmate: Take me to fight the pirates! I was made for this!
     Captain: I was just about to call you!
     <<expression Crewmate smirk>>
+    <<pose Crewmate hand-on-hip>>
     Crewmate: I used to be a space pirate! I know their tactics!
     Crewmate: And I definitely don't want to desert, giving them all your secrets!
     <<pose Captain pointing>>
