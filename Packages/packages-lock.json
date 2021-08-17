@@ -26,13 +26,13 @@
       }
     },
     "dev.yarnspinner.unity": {
-      "version": "https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git#develop",
+      "version": "https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git#v2.0.0-beta5",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.textmeshpro": "1.4.1"
       },
-      "hash": "202e5ccdbb6decb8ba0dbf0b9ace5843f242f512"
+      "hash": "493931d540002e56f9acabbfe243207157e4fb7e"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
