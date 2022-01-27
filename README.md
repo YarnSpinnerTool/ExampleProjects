@@ -21,7 +21,7 @@ To get started with this game, follow these instructions:
     * Click Add.
 4. [Download the assets for the relevant project](https://github.com/thesecretlab/SpaceJourney/releases/).
 5. Double-click on the downloaded file, and it will open in Unity. Click Import.
-6. Open the scene `Scenes/Start Point`.
+6. Open the relevant scene (`Scenes/Start Point` in v1, `Scenes/<game name>` in v2).
 
 If you are following along with the GDC talk, the code we added throughout is included in the asset package's C# script files but is commented out. Search the code for "Uncomment" to find the code we added.
 
