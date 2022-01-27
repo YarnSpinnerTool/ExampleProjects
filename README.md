@@ -1,6 +1,6 @@
 # Yarn Spinner Example Projects
 
-This is the source code to *Space Journey*, a Yarn Spinner 2.0 demo game.
+This repo contains source code for each of the Yarn Spinner 2.0 demo games that are referenced throughout documentation and official tutorials.
 
 ➡️ If you are here for the Space Journey demo project from the GDC 2021 talk [Building Narrative Games with Yarn Spinner](https://schedule.gdconf.com/session/game-career-seminar-building-narrative-games-with-yarn-spinner/880722), download [version 1.0](https://github.com/YarnSpinnerTool/ExampleProjects/releases/tag/v1.0).
 
