@@ -1,0 +1,311 @@
+﻿title: Start
+---
+<<set $hasClueA to false>>
+<<set $hasClueB to false>>
+<<set $hasClueC to false>>
+<<set $spokenToLeftGrave to false>>
+<<set $spokenToCenterGrave to false>>
+<<set $spokenToRightGrave to false>>
+
+Ghost: *wails*
+Ghost: Ahem, sorry. Hey there!
+Ghost: Welcome to the graveyard. I'm so glad you're here.
+Ghost: We've got a bit of a problem with the, uh... residents.
+-> The residents...?
+    Ghost: Yeah, the uh, deadies. These three here.
+    -> Aren't you a deady too?
+        Ghost: Nevermind that.
+        Ghost: As I was saying, we've got a problem. 
+        Ghost: The deadies. They're pirates.
+        -> Pirates?
+            Ghost: Pirates. Well they used to be. That's the problem.
+            Ghost: Their names are Louise, Carol, and Ruby, and they used to be pirates.
+            Ghost: Now they're just annoyances.
+            Ghost: Can you help me?
+            -> Do what?
+                Ghost: Make them stop annoying me, I don't know.
+                Ghost: Figure out why they're so annoyed with each other.
+                Ghost: It's something to do with treasure, adventures, yada yada yada.
+                -> You want me to talk to some deceased pirates about their treasure?
+                    Ghost: Precisely.
+                    -> And why can't you do this?
+                        Ghost: Uh. Well. I might've been their Captain.
+                        Ghost: They refuse to talk to me. Or each other.
+                        -> I see.
+                            Ghost: I'm glad we agree.
+                            -> Fine, I'll help.
+                                Ghost: Great. Just chat to each of them, in whatever order you think will work, and try your best.
+                                -> Uh huh...
+                                    Ghost: Off you go.
+===
+title: Ghost
+---
+Ghost: Are you ready to tell me what happened?
+-> Yes
+    Ghost: Alright, what then?
+    -> Uh, you stole some treasure from the three of them, and they're annoyed?
+    -> Something to do with the bird chest, buried on the island... <<if $hasClueA>>
+    -> There's a bird chest buried on the island, and a key in the tree... <<if $hasClueB>>
+    -> There's a bird chest on the island, a key in the tree, and a camel chest in the grave over there... <<if $hasClueC>>
+        <<jump Ending>>
+    Ghost: That really doesn't sound right. Maybe you need to talk to them some more.
+-> No
+Ghost: Well there's no point talkin' to me. Go chat with the my crazy crew some more!
+===
+title: LeftGraveLouise
+position: -97,-744
+---
+<<if not $spokenToLeftGrave>>
+    Louise: Are you here to get me out of here?
+    <<set $spokenToLeftGrave to true>>
+<<else>>
+    Louise: Back again? Still want to try and get me out of here?
+<<endif>>
+
+-> Get you out of here?
+    Louise: Yes.
+    -> But you're dead...
+        Louise: Oh yeah. I keep forgetting.
+        Louise: Anyway, do you like treasure?
+        -> Love it.
+            Louise: ... want some?
+            -> Sure...
+                Louise: Too bad I'm dead, or I could take you to some.
+                -> You could tell me where it is...
+                    Louise: Hah! 
+                    Louise: ...
+                    Louise: No!
+                -> Tell me where it is.
+                    Louise: ... yeah. 
+                    Louise: What's in it for me?
+                    -> Gratitude.
+                        Louise: Nah, thanks though.
+-> I'm not. <<if not $hasClueA>>
+    Louise: Then why are we speaking?
+    -> I heard you had treasure.
+        Louise: Not so much have, as had.
+        -> Duh, yes.
+            Louise: Wanna know where it is?
+            -> Very much.
+                Louise: It's on the tiny island in the river down the road about five minutes walk, near the big stone. Dig.
+                -> Oh, you just told me.
+                    Louise: Well yeah, I'm not angry with you.
+                    -> Who are you angry with?
+                        Louise: Carol, Ruby, the Captain. Life.
+                        Louise: ...
+                        Louise: Death too, I guess.
+                        -> Fair.
+                            Louise: Get my treasure if you want.
+                            Louise: Just don't give it to them.
+                            -> I promise. 
+                                Louise: Great. Enjoy.
+                                -> I will.
+                                    Louise: I know.
+                                    Louise: It's in a chest, buried where I said.
+                                    Louise: There's a carved bird on the chest.
+                                    -> Thanks. Oh, why are you so mad at them?
+                                        Louise: They didn't like my grog.
+                                        Louise: I made them grog. 
+                                        Louise: Grog filled with love, and care.
+                                        Louise: And they told me it tasted like pi-
+                                        Louise: ...
+                                        Louise: Well they didn't like it. 
+                                        -> That's not very nice.
+                                            Louise: Right?
+                                            -> At least they could've lied.
+                                                Louise: Yep.
+                                                Louise: I knew I liked you.
+                                                Louise: Take my treasure!
+                                                <<set $hasClueA to true>>                                  
+-> Just checking in again... <<if $hasClueA>>
+    Louise: Yes?
+    -> The treasure...
+        Louise: Yes?
+        -> It was on the tiny island, yes?
+            Louise: Yes. Buried in a chest with bird carved on it.
+            -> And you don't want them to have it because they hated your grog.
+                Louise: Do you have to rub it in?
+-> Carol reckons there's a key in yonder tree. <<if $hasClueB>>
+    Louise: Probably, arrr.
+    Louise: What's it to me?
+    -> Do you know what it opens?
+        Louise: Not a clue.
+        Louise: Do you?
+        -> I have some clue, but I'm working on more info.
+            Louise: You do that!
+            -> I will.
+-> Got any gossip on Ruby's treasure? <<if $hasClueC>>
+    Louise: Ruby's treasure?
+    Louise: Hahah. It'll just be "How to be a good pirate" books.
+    -> Oh.
+        Louise: You have fun with that.
+        -> I'll try...
+<<jump LeftGraveLouiseBye>>
+===
+title: LeftGraveLouiseBye
+---
+Louise: I'm tired of chatting for now.
+Louise: Bye!
+===
+title: CenterGraveCarol
+---
+<<if not $spokenToCenterGrave>>
+    Carol: Yes?
+    <<set $spokenToCenterGrave to true>>
+<<else>>
+    Carol: Ahoy again!
+<<endif>>
+
+-> I hear everyone hates you.
+    Carol: Well, that's rude.
+    -> I'm sorry.
+        Carol: But true, I guess.
+        Carol: I was a bit awful.
+        -> What'd you do?
+            Carol: I was a pirate. 
+            Carol: I ate the ship's cat.  
+            -> That's pretty awful. 
+                Carol: Yep, that's me.
+-> I found out about Louise's treasure. <<if $hasClueA>>
+    Carol: Haha... what?
+    -> Her treasure. I found out about it. From her.
+        Carol: It's cute that you think it was hers.
+        -> Well, that's what she said.
+            Carol: She would. 
+            Carol: No honour. And can't even make grog.
+            -> She told me where it is.
+                Carol: Why should I care? 
+                Carol: I'm dead.
+                -> Good point.
+            -> Sad for her. But she still told me where it is.
+                Carol: I'm so very happy for me.
+                Carol: Truly.
+                -> ... thanks  
+-> I heard you all hate each other. And were pirates. There's treasure somewhere. <<if $hasClueA and not $hasClueB>>
+    Carol: That'd be accurate, matey.
+    -> I'm not your matey.
+        Carol: Oh, why not?
+        -> We just met...
+            Carol: I like your vibe.
+            -> That's fair. It's chill but precise.
+                Carol: I'm getting that.
+                -> Thanks.
+                    Carol: Wanna know a secret, my chill but precise friend?
+                    -> Always.
+                        Carol: There's a key in the tree just over there. In the big knot.
+                        -> What's it for?
+                            Carol: A great haul of treasure. 
+                            -> Awesome. I'll keep an eye out.
+                                Carol: Do that. Go get the key!
+                                Carol: Just make sure you only use it in a chest with a camel carved on it.
+                                -> Sure...
+                                    Carol: Have a nice life.
+                                    -> Have a nice.. uh, death.
+                                        <<set $hasClueB to true>>
+-> Thanks for telling me about the key. <<if $hasClueB>>
+    Carol: Yeah, not problem, my precise-but-chill matey.
+    -> Seriously, thanks.
+        Carol: No problemo.
+-> I know about Ruby's treausre. <<if $hasClueC>>
+    Carol: Arr! What an idiot she be.
+    -> That's not very nice.
+        Carol: Guess not.
+        -> Well..
+            Carol: Well...
+<<jump CenterGraveCarolBye>>
+===
+title: CenterGraveCarolBye
+---
+Carol: Anyway, toodles!
+Carol: Time for my beauty sleep.
+-> But you're... oh nevermind. Sleep well.
+===
+title: RightGraveRuby
+---
+<<if not $spokenToRightGrave>>
+    Ruby: What's shaking? Any pirate booty?
+    <<set $spokenToRightGrave to true>>
+<<else>>
+    Ruby: Yarr, hello again.
+<<endif>>
+
+-> Everyone in the grave yard seems pretty weird.
+    Ruby: I'm not weird at all.
+    -> Can you prove that?
+        Ruby: Yeah, fair point.
+        Ruby: I was Number One on a pirate ship.
+        Ruby: Weird is part of the job.
+        -> I reckon.
+            Ruby: How's being alive?
+            -> It's good enough for me.
+                Ruby: Not for me, sadly.
+                -> Ah. Yeah, sorry.
+-> Know anything about booty with a bird carved on it?  <<if $hasClueA>>
+    Ruby: Nup.
+    -> Really?
+        Ruby: Nope...
+        -> REALLY?
+            Ruby: No. Promise.
+            -> So, really?
+                Ruby: Actually, yeah. Louise buried it somewhere.
+                -> Right.
+                    Ruby: That's all I know. Really.
+                    -> OK.. thanks.
+-> I've heard there's a key for some booty around here. <<if $hasClueB>>
+    Ruby: The bird booty.
+    -> So you've heard about it.
+        Ruby: Duh.
+        -> Anything interesting I should know?
+            Ruby: Nope. Don't know where the key is, or what it opens.
+            Ruby: Just that there is one, and a bird is involved.
+            -> Fair, I believe you.
+                Ruby: You do? Fantastic!
+                Ruby: Those are bastards never believed me.
+                Ruby: Try being a first officer when your crew never believes you.
+                -> Yeah, that'd be hard.
+                    Ruby: I don't recommend it at all.
+                    -> I'll make a note.
+-> Got any treasure?  <<if $hasClueB and not $hasClueC>>
+    Ruby: Uh.
+    -> Well?
+        Ruby: That's very direct.
+        -> I like to be direct.
+            Ruby: Fair. I probably should've been more direct in my career.
+            -> Always good.
+                Ruby: Anyway, yeah. I have some. 
+                Ruby: It's buried in a grave over the other side.
+                Ruby: Marked by a camel.
+                Ruby: Dig it up and you'll find a chest, with a camel on it.
+                -> Thanks... that it?
+                    Ruby: Yeah, that's it.
+                    Ruby: It's not locked. Just open it.
+                    Ruby: Enjoy. I couldn't take it with me.
+                    -> Well, thanks.
+                        Ruby: Yeah, no problem.
+                        <<set $hasClueC to true>>
+-> Thanks for the treasure info. <<if $hasClueC>>
+    Ruby: No problem.
+    Ruby: Got it yet?
+    -> Not yet.
+        Ruby: Should get it.
+        -> Yeah...
+<<jump RightGraveRubyBye>>
+===
+title: RightGraveRubyBye
+---
+Ruby: Off you go.
+Ruby: Go be weird somewhere else.
+===
+title: Ending
+---
+<<disable Ghost>>
+<<disable LeftGrave>>
+<<disable CenterGrave>>
+<<disable RightGrave>>
+Ghost: Yarr, where's the treasure matey?
+Ghost: I'll share it with yeh!
+-> Uh..
+    Ghost: Yarr, tell me.
+    -> I don't think so.
+        Ghost: Oh fine. Whatever.
+===
