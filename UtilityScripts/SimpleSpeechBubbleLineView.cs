@@ -5,6 +5,10 @@ using UnityEngine;
 // presents lines, by subclassing DialogueViewBase and overriding certain
 // important methods.
 
+// Before using this class, you should first get familiar with using the
+// built-in Line View and Options List View, which come built-in to Yarn
+// Spinner. 
+
 // Import the Yarn.Unity namespace so we get access to Yarn classes.
 using Yarn.Unity;
 
