@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 // This file is a demonstration of how to build a simple Dialogue View that
@@ -253,9 +254,6 @@ public class SimpleSpeechBubbleLineView : DialogueViewBase
     }
 }
 
-using System.Collections;
-using UnityEngine;
-
 // A class that adds extension methods to MonoBehaviour that allows for
 // animating a property over time.
 public static class TweenExtensions {
@@ -264,14 +262,15 @@ public static class TweenExtensions {
     // and end value, and a 'factor' value between 0 and 1.
     public delegate void TweenFunction<T>(T from, T to, float factor);
 
-    // Starts a coroutine that begins running an animation from 'from' to 'to'
-    // over 'time' seconds, calling the 'handler' function every frame, and
-    // calling the optional 'onComplete' method when it's done.
+    // Starts and returns a coroutine that begins running an animation from
+    // 'from' to 'to' over 'time' seconds, calling the 'handler' function every
+    // frame, and calling the optional 'onComplete' method when it's done.
     //
-    // This method is an 'extension' method: because it's static, and the first
-    // parameter has the 'this' keyword, C# will act as though this 'Tween'
-    // method is a part of the existing 'MonoBehaviour' class. In effect, we're
-    // adding a new method to the Unity-provided class!
+    // This method is an 'extension' method: because it's in a static class, is
+    // static itself, and the first parameter has the 'this' keyword, C# will
+    // act as though this 'Tween' method is a part of the existing
+    // 'MonoBehaviour' class. In effect, we're adding a new method to the
+    // Unity-provided class!
     //
     // Additionally, we're making this method use a type parameter 'T'. Because
     // the tweening system doesn't do anything with the 'from' and 'to' values
