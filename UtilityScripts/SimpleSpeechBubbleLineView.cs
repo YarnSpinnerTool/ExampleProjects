@@ -1,6 +1,10 @@
 using System;
 using UnityEngine;
 
+// This file is a demonstration of how to build a simple Dialogue View that
+// presents lines, by subclassing DialogueViewBase and overriding certain
+// important methods.
+
 // Import the Yarn.Unity namespace so we get access to Yarn classes.
 using Yarn.Unity;
 
@@ -235,8 +239,8 @@ public class SimpleSpeechBubbleLineView : DialogueViewBase
         // line.
 
         // Invoke our 'advance line' handler, which (depending on what we're
-        // currently doing) will be a signal to interrupt the line, or to do
-        // nothing.
+        // currently doing) will be a signal to interrupt the line, stop the
+        // current animation, or do nothing.
         advanceHandler?.Invoke();
     }
 }
