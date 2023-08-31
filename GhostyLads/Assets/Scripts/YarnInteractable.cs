@@ -50,7 +50,7 @@ public class YarnInteractable : MonoBehaviour {
                 lightIndicatorObject.intensity = 0;
             }
             isCurrentConversation = false;
-            Debug.Log($"Started conversation with {name}.");
+            Debug.Log($"Ended conversation with {name}.");
         }
     }
 
