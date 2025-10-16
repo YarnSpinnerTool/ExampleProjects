@@ -17,11 +17,14 @@ To get started with this game, follow these instructions:
     * Choose Package Manager.
     * Click the `+` button at the top-left of the window.
     * Choose "Install from git URL..."
-    * Copy and paste the following URL: `https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git#develop`
+    * Copy and paste the following URL: `https://github.com/YarnSpinnerTool/YarnSpinner-Unity.git#2.5`
     * Click Add.
 4. [Download the assets for the relevant project](https://github.com/thesecretlab/SpaceJourney/releases/).
 5. Double-click on the downloaded file, and it will open in Unity. Click Import.
 6. Open the relevant scene (`Scenes/Start Point` in v1, `Scenes/<game name>` in v2).
+
+> [!TIP]
+> To follow the instructions which include importing `.blend` files, Blender may need to be installed.
 
 If you are following along with the GDC talk, the code we added throughout is included in the asset package's C# script files but is commented out. Search the code for "Uncomment" to find the code we added.
 
